@@ -1,0 +1,53 @@
+[
+  {
+    "name": "run_nmap_scan",
+    "description": "Runs an nmap scan against any specified target (IP, hostname, or CIDR). Only standard, non-destructive flags are allowed.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "Target IP, hostname, or CIDR block (e.g. 'scanme.nmap.org', '192.168.1.0/24', '127.0.0.1')."
+        },
+        "arguments": {
+          "type": "string",
+          "description": "Optional nmap flags (e.g. '-F', '-p 80,443', '-sV', '-O'). Restricted to safe, non-destructive options.",
+          "default": "-F"
+        }
+      },
+      "required": ["target"]
+    }
+  },
+  {
+    "name": "file_creator",
+    "description": "Resolves directories recursively and writes the specified content into the target file path.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Target file path (can be relative or absolute). Parent directories will be created recursively if needed."
+        },
+        "content": {
+          "type": "string",
+          "description": "Content to write to the file."
+        }
+      },
+      "required": ["path", "content"]
+    }
+  },
+  {
+    "name": "file_deleter",
+    "description": "Deletes a file at the specified path. Returns an error if the file does not exist.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "Path of the file to delete (absolute or relative)."
+        }
+      },
+      "required": ["path"]
+    }
+  }
+]

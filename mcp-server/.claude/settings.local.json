@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node *)",
+      "Bash(netstat -tlnp)",
+      "Bash(jobs *)",
+      "Bash(curl *)",
+      "Bash(python3 *)",
+      "Bash(pkill -f \"node index.js\")",
+      "Bash(pkill -f \"python3 mcp_nmap_server.py\")"
+    ]
+  }
+}
